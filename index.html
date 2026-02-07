@@ -7,14 +7,20 @@
 </head>
 <body>
 
-<!-- Background Music -->
-<iframe 
-  src="https://open.spotify.com/embed/track/1v7sZ8bqz3Myr8G0KZ8Y3D?utm_source=generator"
-  width="0" height="0" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+<!-- Hidden YouTube Audio (plays after click) -->
+<iframe
+  id="music"
+  width="0"
+  height="0"
+  src=""
+  frameborder="0"
+  allow="autoplay">
 </iframe>
 
+<div class="overlay"></div>
+
 <div class="page active">
-  <h1>To Shamanyu</h1>
+  <h1>To Shamanyu ❤️</h1>
   <p>From the girl who found home in you</p>
   <button onclick="nextPage()">Next →</button>
 </div>
@@ -33,9 +39,9 @@
 <div class="page">
   <h2>What you mean to me</h2>
   <p>
-    You make me feel calm without trying.  
-    You make ordinary days better.  
-    With you, I don’t need to pretend.
+    You make my chaos calm.  
+    You make ordinary days special.  
+    With you, I feel enough.
   </p>
   <button onclick="nextPage()">Next →</button>
 </div>
@@ -43,20 +49,22 @@
 <div class="page">
   <h2>The feeling</h2>
   <p>
-    Somewhere between late talks and quiet moments,  
-    I stopped imagining life without you.
+    Somewhere between laughs and late talks,  
+    you became my favorite thought.
   </p>
   <button onclick="nextPage()">Next →</button>
 </div>
 
 <div class="page proposal">
   <h2>So here’s my question, Shamanyu…</h2>
-  <p>
-    Will you choose me,  
-    the way I choose you—  
-    every single day?
-  </p>
-  <h1>Will you be mine? ❤️</h1>
+  <p>Choose your answer ❤️</p>
+
+  <div class="options">
+    <button onclick="playMusic()">Yes, it’s you 💍</button>
+    <button onclick="playMusic()">Always you ❤️</button>
+  </div>
+
+  <h1 class="final-text">Tum ho… tum se hi 💖</h1>
 </div>
 
 <script src="script.js"></script>
