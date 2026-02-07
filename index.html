@@ -1,58 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Shamanyu ❤️</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* BACKGROUND SLIDESHOW */
+.bg {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px) brightness(0.6);
+  animation: bgSlide 18s infinite;
+  z-index: -3;
+}
+
+@keyframes bgSlide {
+  0%   { background-image: url("images/us1.jpg"); }
+  33%  { background-image: url("images/us2.jpg"); }
+  66%  { background-image: url("images/us3.jpg"); }
+  100% { background-image: url("images/us1.jpg"); }
+}
+
+/* DARK OVERLAY */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: -2;
+}
+
+/* PETALS */
+.petal {
+  position: fixed;
+  top: -10%;
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle, #ff4d6d, #b1124a);
+  border-radius: 50%;
+  animation: fall linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(120vh) rotate(360deg);
+  }
+}
+
+/* PAGES */
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: 90px 20px;
+  animation: fade 1s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 { font-size: 3rem; color: #ffb6c1; }
+h2 { font-size: 2.2rem; }
+
+p {
+  max-width: 650px;
+  margin: auto;
+  font-size: 1.3rem;
+  line-height: 1.8;
+}
+
+button {
+  margin-top: 40px;
+  padding: 14px 35px;
+  font-size: 1rem;
+  background: #ff4d6d;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff1f4b;
+  transform: scale(1.05);
+}
+</style>
+</head>
+
 <body>
 
-<!-- Background slideshow -->
-<div class="bg-slideshow"></div>
+<div class="bg"></div>
 
-<!-- Rose petals -->
-<div class="petals"></div>
+<!-- MUSIC -->
+<iframe id="music" width="0" height="0" src="" allow="autoplay"></iframe>
 
-<!-- Hidden YouTube music -->
-<iframe
-  id="music"
-  width="0"
-  height="0"
-  src=""
-  frameborder="0"
-  allow="autoplay">
-</iframe>
-
+<!-- PAGE 1 -->
 <div class="page active">
   <h1>To Shamanyu ❤️</h1>
   <p>From the girl who found home in you</p>
   <button onclick="nextPage()">Next →</button>
 </div>
 
+<!-- PAGE 2 -->
 <div class="page">
   <h2>How it started</h2>
   <p>
     It didn’t begin with love.  
     It began with comfort.  
-    Talking to you felt easy.  
-    Silence with you felt safe.
+    And slowly… it became everything.
   </p>
   <button onclick="nextPage()">Next →</button>
 </div>
 
+<!-- PAGE 3 -->
 <div class="page">
   <h2>Us ❤️</h2>
   <p>
-    Every picture holds a memory,  
-    every memory holds you.
+    Every picture holds a memory.  
+    Every memory holds you.
   </p>
   <button onclick="nextPage()">Next →</button>
 </div>
 
-<div class="page proposal">
+<!-- PAGE 4 -->
+<div class="page">
   <h2>So here’s my question, Shamanyu…</h2>
-  <p>Choose your answer ❤️</p>
-
-  <div class="options">
-    <button onclick="playMusic()">Yes, it’s you 💍</button>
-    <button onclick="playMusic()">Always you ❤️</button>
-  </div>
-
-  <h1 class="final-text">Tum ho… tum se hi 💖</h1>
+  <p>Will you be mine? ❤️</p>
+  <button onclick="playMusic()">Yes, always 💍</button>
 </div>
 
-<script src="script.js"></script>
+<script>
+/* PAGE NAVIGATION */
+let current = 0;
+const pages = document.querySelectorAll(".page");
+
+function nextPage() {
+  pages[current].classList.remove("active");
+  current++;
+  pages[current].classList.add("active");
+}
+
+/* PETALS */
+for (let i = 0; i < 25; i++) {
+  const petal = document.createElement("div");
+  petal.className = "petal";
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.animationDuration = 8 + Math.random() * 10 + "s";
+  document.body.appendChild(petal);
+}
+
+/* MUSIC */
+function playMusic() {
+  document.getElementById("music").src =
+    "https://www.youtube.com/embed/mt9xg0mmt28?autoplay=1&loop=1&playlist=mt9xg0mmt28";
+}
+</script>
+
 </body>
+</html>
