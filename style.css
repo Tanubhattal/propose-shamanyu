@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(to bottom, #1a1a1a, #3a0f2e);
+  color: #fff;
+  text-align: center;
+}
+
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: 80px 20px;
+}
+
+.page.active {
+  display: block;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #ffb6c1;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: auto;
+}
+
+button {
+  margin-top: 40px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  background: #ff5c8d;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff2e6f;
+}
+
+.proposal h1 {
+  margin-top: 30px;
+  font-size: 3.2rem;
+  color: #ffdee9;
+}
